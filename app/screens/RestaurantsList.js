@@ -4,11 +4,28 @@ import { Container } from "../components/Container";
 import {Logo} from  '../components/Logo';
 import restaurants from '../data/restaurants';
 import { ListItem, Separator} from '../components/List';
+import PropTypes from 'prop-types';
+import RestaurantDetail from './RestaurantDetail';
 
 const TEMP_CURRENT_CURRENCY= 'CAD';
+
 class RestaurantsList extends Component {
     
+    static navigationOptions = {
+        title: 'List',
+      }
+      
+    static propTypes = {
+        navigation: PropTypes.object,
+    };
+
+    goToRestaurantDetail() {
+        console.log('in goToRestaurantDetail');
+        this.props.navigation.navigate('RestaurantDetail');
+    }
+
     handlePress = () => {
+        this.goToRestaurantDetail();
         console.log('row press');
     };
 
